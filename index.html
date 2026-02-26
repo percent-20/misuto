@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misuto — Dynamic Environmental Authentication</title>
+  <meta name="description" content="Misuto replaces static credentials with Dynamic Environmental Signatures. Short-lived, zero-knowledge proofs generated from your physical device context. The pre-authentication shield for enterprise identity.">
+  <meta property="og:title" content="Misuto — Your Environment Is Your Credential">
+  <meta property="og:description" content="Dynamic Environmental Signatures that make stolen credentials fundamentally unusable. A pre-authentication shield that sits in front of your existing IdP.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Bubbles background -->
+  <div class="bubbles-container" id="bubbles"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">&#9672;</span> Misuto
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#problem">The Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#integration">Integration</a>
+        <a href="#faq">FAQ</a>
+        <a href="#demo" class="nav-cta">Request a Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       1. HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-badge reveal">Pre-Authentication Shield</div>
+      <h1 class="hero-title reveal">
+        Your environment is<br class="mobile-hide"> your credential.
+      </h1>
+      <p class="hero-subtitle reveal">
+        Misuto generates Dynamic Environmental Signatures &mdash; short-lived, zero-knowledge proofs from your physical device context &mdash; making stolen credentials fundamentally unusable.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#demo" class="btn btn-primary">
+          <span>Request a Demo</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#solution" class="btn btn-secondary">
+          <span>Learn More</span>
+        </a>
+      </div>
+      <div class="hero-proof reveal">
+        <span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          100% Dynamic Signatures
+        </span>
+        <span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Zero Friction for Users
+        </span>
+        <span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Deploys in Front of Any IdP
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. THE PROBLEM — Security Fatigue Cycle
+       ============================================================ -->
+  <section class="section section-alt" id="problem">
+    <div class="container">
+      <p class="section-eyebrow reveal">The Problem</p>
+      <h2 class="section-title reveal">The vicious cycle of security fatigue</h2>
+      <p class="section-subtitle reveal">Every enterprise runs the same loop. Misuto is the only way to break it.</p>
+
+      <!-- Cycle visualization -->
+      <div class="cycle-visual reveal">
+        <div class="cycle-ring">
+          <div class="cycle-step"><span class="cycle-num">1</span>Harden security policies</div>
+          <div class="cycle-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="cycle-step"><span class="cycle-num">2</span>Friction increases</div>
+          <div class="cycle-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="cycle-step"><span class="cycle-num">3</span>Employee complaints</div>
+          <div class="cycle-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="cycle-step"><span class="cycle-num">4</span>SOC fatigue &amp; CISO pressure</div>
+          <div class="cycle-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="cycle-step"><span class="cycle-num">5</span>Relax policies</div>
+          <div class="cycle-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="cycle-step"><span class="cycle-num">6</span>Resilience drops &mdash; repeat</div>
+        </div>
+      </div>
+
+      <!-- Pain cards -->
+      <div class="pain-cards">
+        <div class="pain-card reveal">
+          <div class="pain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 7v5c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Security Leaders</h3>
+          <p>Constantly choosing between robust security and user experience. Every hardening cycle creates pushback. Every relaxation creates risk.</p>
+        </div>
+        <div class="pain-card reveal">
+          <div class="pain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0H5a2 2 0 01-2-2v-4m6 6h10a2 2 0 002-2v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>IT &amp; Operations</h3>
+          <p>Drowning in MFA reset tickets, token provisioning, and credential lifecycle management. Every new tool adds another integration burden.</p>
+        </div>
+        <div class="pain-card reveal">
+          <div class="pain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Employees</h3>
+          <p>Constant prompts, rotating codes, push notifications for every login. Security becomes the thing that prevents them from getting work done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. THE SOLUTION — Meet Misuto
+       ============================================================ -->
+  <section class="section" id="solution">
+    <div class="container">
+      <p class="section-eyebrow reveal">The Solution</p>
+      <h2 class="section-title reveal">Meet Misuto: Dynamic Environmental Signatures</h2>
+      <p class="section-subtitle reveal">Your phone silently generates a cryptographic proof from its physical context. Continuously changing. Impossible to replay. Completely frictionless.</p>
+
+      <div class="solution-visual reveal">
+        <div class="solution-steps">
+          <div class="solution-step">
+            <div class="solution-step-num">1</div>
+            <div class="solution-step-text">
+              <h4>Device collects context silently</h4>
+              <p>WiFi networks, GPS coordinates, time of day, nearby Bluetooth devices. All captured in the background without any user action.</p>
+            </div>
+          </div>
+          <div class="solution-step">
+            <div class="solution-step-num">2</div>
+            <div class="solution-step-text">
+              <h4>Hashed on-device into a short-lived proof</h4>
+              <p>Raw signals are hashed and encrypted locally. The resulting Dynamic Environmental Signature is time-bound and single-use. Raw data never leaves the phone.</p>
+            </div>
+          </div>
+          <div class="solution-step">
+            <div class="solution-step-num">3</div>
+            <div class="solution-step-text">
+              <h4>Proof sent to Misuto for verification</h4>
+              <p>The signature is compared against your established environmental profile. Match means seamless access. Mismatch means blocked, instantly.</p>
+            </div>
+          </div>
+          <div class="solution-step">
+            <div class="solution-step-num">4</div>
+            <div class="solution-step-text">
+              <h4>Access granted or denied in milliseconds</h4>
+              <p>No push notification. No approval tap. No codes. The right person, in the right environment, gets in without friction. Everyone else is blocked.</p>
+            </div>
+          </div>
+        </div>
+        <div class="solution-phone">
+          <div class="phone-frame">
+            <img src="assets/saferoom-authenticated.png" alt="Misuto verification — Authenticated" width="240" height="auto" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. HOW IT WORKS — 3-Step Flow
+       ============================================================ -->
+  <section class="section section-alt" id="how-it-works">
+    <div class="container">
+      <p class="section-eyebrow reveal">How It Works</p>
+      <h2 class="section-title reveal">Three steps. Zero friction.</h2>
+      <p class="section-subtitle reveal">From the employee's perspective, nothing changes. From the attacker's perspective, everything does.</p>
+      <div class="flow">
+        <div class="flow-step reveal">
+          <div class="flow-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M10 14h8M14 10v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="flow-num">01</div>
+          <h3>Employee opens any app</h3>
+          <p>Business as usual. Okta, Entra, Auth0, internal tools. The user clicks "Sign In" exactly as they do today. Nothing new to learn.</p>
+        </div>
+        <div class="flow-connector reveal"><div class="flow-line"></div></div>
+        <div class="flow-step reveal">
+          <div class="flow-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="7" y="3" width="14" height="22" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="20" r="1.5" fill="currentColor"/></svg>
+          </div>
+          <div class="flow-num">02</div>
+          <h3>Misuto silently checks environment</h3>
+          <p>In the background, the employee's phone generates a Dynamic Environmental Signature from WiFi, location, time, and nearby devices. No prompts. No codes.</p>
+        </div>
+        <div class="flow-connector reveal"><div class="flow-line"></div></div>
+        <div class="flow-step reveal">
+          <div class="flow-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M7 14l5 5L21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="flow-num">03</div>
+          <h3>Match = access. No match = blocked.</h3>
+          <p>If the signature matches the employee's environmental profile, access is granted seamlessly. If not, the request is denied before it ever reaches the IdP.</p>
+        </div>
+      </div>
+      <div class="flow-emphasis reveal">
+        Legitimate users never notice Misuto is there. Attackers with stolen credentials are stopped before authentication even begins.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. WHO IT SERVES
+       ============================================================ -->
+  <section class="section" id="who-it-serves">
+    <div class="container">
+      <p class="section-eyebrow reveal">Who It Serves</p>
+      <h2 class="section-title reveal">Built for every stakeholder in the security chain</h2>
+      <p class="section-subtitle reveal">Misuto eliminates the trade-off between security and usability.</p>
+      <div class="serves-grid">
+        <div class="serves-card reveal">
+          <div class="serves-card-inner">
+            <div class="serves-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 7v5c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="serves-label">Security / CISO</div>
+            <h3>Pre-authentication shield</h3>
+            <p>Stolen credentials become fundamentally unusable. Misuto blocks unauthorized access before it reaches your IdP. Continuous verification, not one-time checks. Break the security fatigue cycle for good.</p>
+          </div>
+        </div>
+        <div class="serves-card reveal">
+          <div class="serves-card-inner">
+            <div class="serves-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0H5a2 2 0 01-2-2v-4m6 6h10a2 2 0 002-2v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="serves-label">IT / Operations</div>
+            <h3>No rip-and-replace</h3>
+            <p>Plugs directly into Okta, Entra ID, or Auth0. Slashes MFA helpdesk tickets. No new tokens to provision, no new apps to deploy. Dramatically simpler credential lifecycle.</p>
+          </div>
+        </div>
+        <div class="serves-card reveal">
+          <div class="serves-card-inner">
+            <div class="serves-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="serves-label">End Users</div>
+            <h3>No prompts. No codes. Just works.</h3>
+            <p>Employees don't need to do anything to get work done. No push notifications, no rotating codes, no hardware tokens. Authentication happens silently in the background.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. ZERO-KNOWLEDGE PRIVACY
+       ============================================================ -->
+  <section class="section privacy-section" id="privacy">
+    <div class="privacy-glow"></div>
+    <div class="container">
+      <p class="section-eyebrow reveal">Zero-Knowledge Privacy</p>
+      <h2 class="section-title reveal">Your data never leaves the device in raw form</h2>
+      <p class="section-subtitle reveal">Misuto was designed so the server can verify your environment without ever knowing where you are or what's around you.</p>
+
+      <div class="privacy-flow reveal">
+        <div class="privacy-flow-side">
+          <div class="privacy-flow-header">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="4" y="2" width="12" height="16" rx="2.5" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="14.5" r="1" fill="currentColor"/></svg>
+            Employee's device
+          </div>
+          <div class="privacy-flow-items">
+            <div class="privacy-flow-item pf-raw">WiFi: "CorpNet-5G"</div>
+            <div class="privacy-flow-item pf-raw">Location: 40.74, -73.99</div>
+            <div class="privacy-flow-item pf-raw">Time: 09:15 EST</div>
+            <div class="privacy-flow-item pf-raw">Nearby: 3 BLE devices</div>
+          </div>
+          <div class="privacy-flow-process">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            SHA-256 + HMAC on-device
+          </div>
+        </div>
+        <div class="privacy-flow-arrow">
+          <svg width="40" height="20" viewBox="0 0 40 20" fill="none"><path d="M0 10h36m0 0l-6-5m6 5l-6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Encrypted<br>proofs only</span>
+        </div>
+        <div class="privacy-flow-side">
+          <div class="privacy-flow-header">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M6 6V5a4 4 0 018 0v1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Misuto verification server
+          </div>
+          <div class="privacy-flow-items">
+            <div class="privacy-flow-item pf-hash">a7f3...c821</div>
+            <div class="privacy-flow-item pf-hash">9e2b...4f17</div>
+            <div class="privacy-flow-item pf-hash">d41c...8a03</div>
+            <div class="privacy-flow-item pf-hash">b6e9...2d55</div>
+          </div>
+          <div class="privacy-flow-verdict">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Environmental match verified
+          </div>
+        </div>
+      </div>
+
+      <div class="privacy-grid">
+        <div class="privacy-card reveal">
+          <div class="privacy-num">01</div>
+          <h3>On-device hashing</h3>
+          <p>All environmental signals are hashed and encrypted locally before transmission. The verification server never sees raw WiFi names, GPS coordinates, or device identifiers.</p>
+        </div>
+        <div class="privacy-card reveal">
+          <div class="privacy-num">02</div>
+          <h3>Time-bound signatures</h3>
+          <p>Every Dynamic Environmental Signature expires within seconds. Even if intercepted, proofs cannot be replayed. Each verification generates a fresh, single-use proof.</p>
+        </div>
+        <div class="privacy-card reveal">
+          <div class="privacy-num">03</div>
+          <h3>No persistent tracking</h3>
+          <p>Misuto doesn't store location history or build movement profiles. Verification is stateless: check, match, forget. Your privacy is architecturally guaranteed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. THE CREDENTIAL LIFECYCLE — Before / After
+       ============================================================ -->
+  <section class="section section-alt" id="lifecycle">
+    <div class="container">
+      <p class="section-eyebrow reveal">The Credential Lifecycle</p>
+      <h2 class="section-title reveal">Static credentials aren't dying. They're already dead.</h2>
+      <p class="section-subtitle reveal">See how Misuto transforms every phase of the authentication lifecycle.</p>
+
+      <div class="lifecycle-grid">
+        <div class="lifecycle-card reveal">
+          <h4>Onboarding</h4>
+          <div class="lifecycle-label lifecycle-label-old">Today</div>
+          <p class="lifecycle-text">Provision passwords, enroll MFA tokens, distribute hardware keys. Days of setup before an employee can work.</p>
+          <div class="lifecycle-label lifecycle-label-new">With Misuto</div>
+          <p class="lifecycle-text">Employee's phone auto-enrolls on first login. Environmental profile builds in minutes. No tokens, no hardware.</p>
+        </div>
+        <div class="lifecycle-card reveal">
+          <h4>Daily Access</h4>
+          <div class="lifecycle-label lifecycle-label-old">Today</div>
+          <p class="lifecycle-text">Constant MFA prompts, push notifications, rotating codes. Users develop fatigue and find workarounds.</p>
+          <div class="lifecycle-label lifecycle-label-new">With Misuto</div>
+          <p class="lifecycle-text">Silent verification in the background. No prompts, no codes, no interruptions. Users don't know it's there.</p>
+        </div>
+        <div class="lifecycle-card reveal">
+          <h4>Credential Compromise</h4>
+          <div class="lifecycle-label lifecycle-label-old">Today</div>
+          <p class="lifecycle-text">Stolen password + phished MFA = full access. Detection takes 207 days on average. Reset cascade affects everyone.</p>
+          <div class="lifecycle-label lifecycle-label-new">With Misuto</div>
+          <p class="lifecycle-text">Stolen credentials are useless without the victim's physical environment. Attack blocked at pre-authentication. Zero lateral movement.</p>
+        </div>
+        <div class="lifecycle-card reveal">
+          <h4>Offboarding</h4>
+          <div class="lifecycle-label lifecycle-label-old">Today</div>
+          <p class="lifecycle-text">Revoke credentials, collect hardware tokens, deactivate MFA. Gaps leave zombie accounts active for weeks.</p>
+          <div class="lifecycle-label lifecycle-label-new">With Misuto</div>
+          <p class="lifecycle-text">Revoke the environmental profile. Instant. No hardware to retrieve. No credentials to rotate. Clean cut.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. INTEGRATION
+       ============================================================ -->
+  <section class="section" id="integration">
+    <div class="container">
+      <p class="section-eyebrow reveal">Integration</p>
+      <h2 class="section-title reveal">Sits in front of your IdP. Not instead of it.</h2>
+      <p class="section-subtitle reveal">Misuto deploys as a pre-authentication layer alongside your existing identity infrastructure. No rip-and-replace.</p>
+
+      <div class="integration-visual reveal">
+        <div class="integration-diagram">
+          <div class="integration-box">
+            <div class="integration-box-label">User</div>
+            <div class="integration-box-name">Employee</div>
+          </div>
+          <div class="integration-arrow">
+            <svg width="40" height="20" viewBox="0 0 40 20" fill="none"><path d="M0 10h36m0 0l-6-5m6 5l-6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="integration-box integration-misuto">
+            <div class="integration-box-label">Pre-Auth Shield</div>
+            <div class="integration-box-name">Misuto</div>
+          </div>
+          <div class="integration-arrow">
+            <svg width="40" height="20" viewBox="0 0 40 20" fill="none"><path d="M0 10h36m0 0l-6-5m6 5l-6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="integration-box">
+            <div class="integration-box-label">Identity Provider</div>
+            <div class="integration-box-name">Okta / Entra / Auth0</div>
+          </div>
+        </div>
+
+        <div class="idp-logos">
+          <div class="idp-logo">Okta</div>
+          <div class="idp-logo">Microsoft Entra ID</div>
+          <div class="idp-logo">Auth0</div>
+          <div class="idp-logo">Custom SAML/OIDC</div>
+        </div>
+
+        <p class="integration-note reveal">Works with any SAML 2.0 or OIDC-compliant identity provider. Deploy alongside your existing infrastructure &mdash; Misuto verifies the user's environment before the IdP ever sees the authentication request.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. FAQ
+       ============================================================ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <p class="section-eyebrow reveal">FAQ</p>
+      <h2 class="section-title reveal">Enterprise questions, answered</h2>
+      <div class="faq-list reveal">
+
+        <details class="faq-item">
+          <summary>How does Misuto align with compliance frameworks (NIST, SOC 2, GDPR)?</summary>
+          <p>Misuto's zero-knowledge architecture is designed with regulatory compliance in mind. Environmental data is hashed on-device and never stored on our servers in raw form. We support NIST 800-63 AAL2+ requirements, SOC 2 Type II audit trails, and GDPR data minimization principles. Detailed compliance documentation is available during the demo process.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What's the typical deployment timeline?</summary>
+          <p>Most enterprises complete initial deployment within 2-4 weeks. Phase 1 (shadow mode) runs Misuto alongside your existing MFA without enforcement, so you can validate environmental profiles. Phase 2 enables enforcement gradually by user group. No downtime, no migration windows.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What happens if an employee loses their phone?</summary>
+          <p>IT can revoke the device's environmental profile immediately through the admin console. A replacement device auto-enrolls on first login with supervisor approval. Unlike hardware tokens, there's no logistics of shipping or retrieving physical devices.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How does Misuto handle remote and hybrid workers?</summary>
+          <p>Employees can register multiple safe environments: home office, headquarters, co-working spaces. Each environment has its own signature profile with configurable time windows. Misuto adapts to how your workforce actually works, not just where your office is.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What if the verification server is unreachable?</summary>
+          <p>Misuto fails closed by default. If verification cannot be completed, access is denied until connectivity is restored. For mission-critical applications, you can configure a time-limited cached verification with reduced scope. Policy is fully configurable per application.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Does Misuto replace our existing MFA?</summary>
+          <p>Misuto sits in front of your IdP as a pre-authentication layer. It can replace traditional MFA (push notifications, OTP codes, hardware tokens) or run alongside it as an additional factor. Most enterprises phase out legacy MFA over 3-6 months as they gain confidence in environmental verification.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can Misuto detect if someone is being coerced or under duress?</summary>
+          <p>Misuto's environmental signatures include behavioral patterns (typical login times, usual locations, device proximity patterns). Significant deviations from an employee's normal pattern can trigger step-up verification or alert the security team, depending on your policy configuration.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. REQUEST A DEMO
+       ============================================================ -->
+  <section class="section" id="demo">
+    <div class="container">
+      <div class="demo-layout reveal">
+        <div class="demo-box">
+          <p class="section-eyebrow">Get Started</p>
+          <h2>Request a Demo</h2>
+          <p>See how Misuto eliminates credential-based attacks without changing your users' workflow. We'll walk you through deployment, integration, and environmental profiling.</p>
+          <form class="demo-form" id="demo-form" action="https://formspree.io/f/mnjbolzd" method="POST">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Full name" required autocomplete="name">
+              <input type="email" name="email" placeholder="Work email" required autocomplete="email">
+            </div>
+            <input type="text" name="company" placeholder="Company" required autocomplete="organization">
+            <textarea name="message" placeholder="Tell us about your environment (optional)" rows="3"></textarea>
+            <button type="submit" class="btn btn-primary">Request a Demo</button>
+          </form>
+          <p class="demo-note" id="demo-note">No commitment. We'll reach out within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="logo-icon">&#9672;</span> <strong>Misuto</strong> <span class="footer-sep">by <a href="https://percent-20.com" target="_blank" rel="noopener">Percent-20</a></span>
+        </div>
+        <div class="footer-links">
+          <a href="https://percent-20.github.io/agentic-mist/" target="_blank" rel="noopener">AgenticMist (Developers)</a>
+          <a href="https://percent-20.com" target="_blank" rel="noopener">Percent-20</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
