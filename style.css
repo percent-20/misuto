@@ -13,6 +13,12 @@ html {
   color: #111827;
 }
 
+/* All content sits above bubbles */
+body > *:not(.bubbles-container) {
+  position: relative;
+  z-index: 1;
+}
+
 /* ========================================
    Bubbles Background
    ======================================== */
