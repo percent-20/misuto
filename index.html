@@ -44,12 +44,12 @@
     <div class="hero-glow"></div>
     <div class="hero-grid"></div>
     <div class="container">
-      <div class="hero-badge reveal">Enterprise Identity Security</div>
+      <div class="hero-badge reveal">By Percent-20</div>
       <h1 class="hero-title reveal">
-        Stolen credentials<br class="mobile-hide"> stop working.
+        Verify people by where they are,<br class="mobile-hide"> not what they know.
       </h1>
       <p class="hero-subtitle reveal">
-        Misuto silently verifies that the person logging in is physically present in a trusted environment &mdash; their office, home, or any approved location. No codes to type. No prompts to tap. Attackers with stolen passwords and phished MFA are blocked before they ever reach your systems.
+        Misuto checks a user's physical environment &mdash; WiFi, location, time of day &mdash; and uses that to confirm their identity. Silently. No codes, no prompts, no friction.
       </p>
       <div class="hero-actions reveal">
         <a href="#demo" class="btn btn-primary">
@@ -60,6 +60,108 @@
           <span>See How It Works</span>
         </a>
       </div>
+
+      <!-- Hero visual: two scenarios -->
+      <div class="hero-visual reveal">
+        <!-- Scenario 1: Legitimate employee -->
+        <div class="hero-scenario hero-scenario-good">
+          <div class="scenario-label scenario-label-good">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a7 7 0 100 14A7 7 0 008 1z" stroke="currentColor" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Legitimate employee
+          </div>
+          <div class="scenario-flow">
+            <div class="scenario-step">
+              <div class="scenario-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 15v1a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><rect x="8" y="1" width="9" height="13" rx="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
+              </div>
+              <span>Clicks "Sign In"</span>
+            </div>
+            <div class="scenario-arrow">
+              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="scenario-step">
+              <div class="scenario-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="5" y="2" width="10" height="16" rx="2" stroke="currentColor" stroke-width="1.2"/><circle cx="10" cy="15" r="1" fill="currentColor"/></svg>
+              </div>
+              <span>Phone checks environment</span>
+            </div>
+            <div class="scenario-arrow">
+              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="scenario-checks">
+              <div class="scenario-check check-pass">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Office WiFi
+              </div>
+              <div class="scenario-check check-pass">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Correct location
+              </div>
+              <div class="scenario-check check-pass">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Work hours
+              </div>
+            </div>
+            <div class="scenario-arrow">
+              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="scenario-result result-pass">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9l3.5 3.5L14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Access granted
+            </div>
+          </div>
+        </div>
+
+        <!-- Scenario 2: Attacker -->
+        <div class="hero-scenario hero-scenario-bad">
+          <div class="scenario-label scenario-label-bad">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a7 7 0 100 14A7 7 0 008 1z" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Attacker with stolen password
+          </div>
+          <div class="scenario-flow">
+            <div class="scenario-step">
+              <div class="scenario-icon scenario-icon-bad">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 15v1a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><rect x="8" y="1" width="9" height="13" rx="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
+              </div>
+              <span>Uses stolen credentials</span>
+            </div>
+            <div class="scenario-arrow scenario-arrow-bad">
+              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="scenario-step">
+              <div class="scenario-icon scenario-icon-bad">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="5" y="2" width="10" height="16" rx="2" stroke="currentColor" stroke-width="1.2"/><circle cx="10" cy="15" r="1" fill="currentColor"/></svg>
+              </div>
+              <span>Wrong phone / no phone</span>
+            </div>
+            <div class="scenario-arrow scenario-arrow-bad">
+              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="scenario-checks">
+              <div class="scenario-check check-fail">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                Unknown WiFi
+              </div>
+              <div class="scenario-check check-fail">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                Wrong country
+              </div>
+              <div class="scenario-check check-fail">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                3 AM local time
+              </div>
+            </div>
+            <div class="scenario-arrow scenario-arrow-bad">
+              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="scenario-result result-fail">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 5l8 8M13 5l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Blocked
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="hero-proof reveal">
         <span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -71,7 +173,7 @@
         </span>
         <span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          No new hardware or apps for users
+          No new hardware for users
         </span>
       </div>
     </div>
