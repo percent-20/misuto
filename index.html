@@ -195,10 +195,25 @@
             <div><h4 class="font-bold text-base mb-1">All before your IdP is even involved</h4><p class="text-gray-500 text-sm leading-relaxed">Misuto sits in front of Okta, Entra, or Ping. Attackers are stopped before the login page loads.</p></div>
           </div>
         </div>
-        <!-- Right: Phone -->
-        <div class="flex-shrink-0">
-          <div class="bg-white border border-gray-200 rounded-2xl p-2 shadow-lg w-56">
-            <img src="assets/saferoom-authenticated.png" alt="Misuto verification" class="rounded-xl w-full" loading="lazy">
+        <!-- Right: Phone + Diagrams -->
+        <div class="flex-1 w-full">
+          <div class="flex gap-4 items-start">
+            <!-- Phone screenshot -->
+            <div class="flex-shrink-0 w-44 lg:w-52">
+              <div class="bg-white border border-gray-200 rounded-2xl p-2 shadow-lg">
+                <img src="assets/saferoom-select-keys.png" alt="Misuto selecting environmental signals — location, time, nearby devices" class="rounded-xl w-full" loading="lazy">
+              </div>
+              <p class="text-xs text-gray-400 text-center mt-2 font-medium">Environmental signals</p>
+            </div>
+            <!-- Flow diagrams -->
+            <div class="flex-1 grid gap-3">
+              <div class="bg-white border border-gray-200 rounded-2xl p-3 shadow-lg">
+                <img src="assets/identity-flow-verified.svg" alt="Legitimate identity verification flow" class="rounded-xl w-full" loading="lazy">
+              </div>
+              <div class="bg-white border border-gray-200 rounded-2xl p-3 shadow-lg">
+                <img src="assets/identity-flow-blocked.svg" alt="Attacker blocked before IdP" class="rounded-xl w-full" loading="lazy">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -235,6 +250,27 @@
           <div class="text-xs text-gray-400 font-bold mb-2" style="font-family:'SF Mono','Fira Code',monospace;">03</div>
           <h3 class="font-bold text-base mb-2">Right environment = access. Wrong = blocked.</h3>
           <p class="text-gray-500 text-sm leading-relaxed">If everything matches, logged in seamlessly. Wrong country with the same credentials? Stopped cold before authentication begins.</p>
+        </div>
+      </div>
+      <!-- App screenshots showing the actual flow -->
+      <div class="mt-14 flex justify-center gap-6 lg:gap-10">
+        <div class="text-center w-40 lg:w-48">
+          <div class="bg-white border border-gray-200 rounded-2xl p-2 shadow-md">
+            <img src="assets/saferoom-security-level.png" alt="Security level configuration" class="rounded-xl w-full" loading="lazy">
+          </div>
+          <p class="text-xs text-gray-400 mt-2 font-medium">IT sets security level</p>
+        </div>
+        <div class="text-center w-40 lg:w-48">
+          <div class="bg-white border border-gray-200 rounded-2xl p-2 shadow-md">
+            <img src="assets/saferoom-select-keys.png" alt="Environmental signal selection" class="rounded-xl w-full" loading="lazy">
+          </div>
+          <p class="text-xs text-gray-400 mt-2 font-medium">Signals are configured</p>
+        </div>
+        <div class="text-center w-40 lg:w-48">
+          <div class="bg-white border border-gray-200 rounded-2xl p-2 shadow-md overflow-hidden">
+            <img src="assets/saferoom-authenticated.png" alt="Authenticated successfully" class="rounded-xl w-full" loading="lazy">
+          </div>
+          <p class="text-xs text-gray-400 mt-2 font-medium">Silent verification</p>
         </div>
       </div>
       <div class="mt-10 max-w-xl mx-auto text-center bg-purple-50 border border-purple-100 rounded-xl px-6 py-5 text-gray-700 font-semibold text-sm">
