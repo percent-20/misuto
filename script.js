@@ -3,34 +3,34 @@
   'use strict';
 
   // ========================================
-  // Bubbles Background
+  // Bubbles Background (light theme)
   // ========================================
   var bubblesContainer = document.getElementById('bubbles');
 
   if (bubblesContainer) {
     var colors = [
-      'rgba(139, 92, 246, ',   // purple
-      'rgba(167, 139, 250, ',  // blue
-      'rgba(192, 132, 252, ',  // teal
-      'rgba(34, 197, 94, ',    // green
-      'rgba(233, 213, 255, ',  // light purple
+      'rgba(124, 58, 237, ',   // purple
+      'rgba(139, 92, 246, ',   // purple-light
+      'rgba(167, 139, 250, ',  // lavender
+      'rgba(196, 181, 253, ',  // soft lavender
+      'rgba(221, 214, 254, ',  // very light lavender
     ];
-    var bubbleCount = 40;
+    var bubbleCount = 20;
 
     function spawnBubble(immediate) {
       var bubble = document.createElement('div');
       bubble.className = 'bubble';
 
-      var size = Math.random() * 50 + 8;
+      var size = Math.random() * 40 + 8;
       var x = Math.random() * 100;
-      var duration = Math.random() * 8 + 5;
-      var opacity = Math.random() * 0.15 + 0.08;
+      var duration = Math.random() * 10 + 6;
+      var opacity = Math.random() * 0.08 + 0.03;
       var color = colors[Math.floor(Math.random() * colors.length)];
 
       bubble.style.width = size + 'px';
       bubble.style.height = size + 'px';
       bubble.style.left = x + '%';
-      bubble.style.background = color + (opacity * 5) + ')';
+      bubble.style.background = color + (opacity * 4) + ')';
       bubble.style.boxShadow = '0 0 ' + (size * 2) + 'px ' + color + (opacity * 2) + ')';
       bubble.style.setProperty('--bubble-opacity', opacity);
       bubble.style.animationDuration = duration + 's';
