@@ -6,649 +6,473 @@
   <title>Misuto | Passwords Can Be Stolen. Physics Can't.</title>
   <meta name="description" content="Misuto verifies employee access by generating environmental signatures from mobile device sensors. Stolen passwords and phished MFA codes become useless. Invisible to users. Deploys in front of Okta, Entra, or Auth0.">
   <meta property="og:title" content="Misuto | Passwords Can Be Stolen. Physics Can't.">
-  <meta property="og:description" content="Misuto silently checks that the person logging in is in a trusted physical environment. No codes, no prompts, no friction. Attackers with stolen passwords are blocked before authentication begins.">
+  <meta property="og:description" content="Misuto silently checks that the person logging in is in a trusted physical environment. No codes, no prompts, no friction.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="font-sans text-gray-800 bg-white antialiased" style="font-family:'Inter',system-ui,sans-serif;">
 
-  <!-- Bubbles background -->
+  <!-- Bubbles -->
   <div class="bubbles-container" id="bubbles"></div>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-icon">&#9672;</span> Misuto
+  <!-- Nav -->
+  <nav id="nav" class="fixed w-full z-50 top-0 bg-white bg-opacity-90 backdrop-blur transition-shadow duration-300">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <a href="#" class="flex items-center gap-2 text-lg font-bold text-gray-900 no-underline" style="font-family:'SF Mono','Fira Code',monospace;">
+        <span class="text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-purple-400">&#9672;</span> Misuto
       </a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
+      <button id="nav-toggle" class="lg:hidden flex flex-col gap-1 p-1" aria-label="Toggle navigation">
+        <span class="block w-5 h-0.5 bg-gray-500"></span>
+        <span class="block w-5 h-0.5 bg-gray-500"></span>
+        <span class="block w-5 h-0.5 bg-gray-500"></span>
       </button>
-      <div class="nav-links" id="nav-links">
-        <a href="#problem">The Problem</a>
-        <a href="#solution">Solution</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#integration">Integration</a>
-        <a href="#faq">FAQ</a>
-        <a href="#demo" class="nav-cta">Request a Demo</a>
+      <div id="nav-links" class="hidden lg:flex items-center gap-7">
+        <a href="#problem" class="text-sm text-gray-500 hover:text-gray-900 font-medium no-underline">The Problem</a>
+        <a href="#solution" class="text-sm text-gray-500 hover:text-gray-900 font-medium no-underline">Solution</a>
+        <a href="#how-it-works" class="text-sm text-gray-500 hover:text-gray-900 font-medium no-underline">How It Works</a>
+        <a href="#privacy" class="text-sm text-gray-500 hover:text-gray-900 font-medium no-underline">Privacy</a>
+        <a href="#faq" class="text-sm text-gray-500 hover:text-gray-900 font-medium no-underline">FAQ</a>
+        <a href="#demo" class="ml-2 px-5 py-2 bg-gradient-to-r from-purple-600 to-purple-500 text-white text-sm font-semibold rounded-lg shadow hover:shadow-lg transform hover:-translate-y-0.5 transition no-underline">Request a Demo</a>
       </div>
     </div>
   </nav>
 
-  <!-- ============================================================
-       1. HERO
-       ============================================================ -->
-  <section class="hero" id="hero">
-    <div class="container">
-      <div class="hero-badge reveal">By Percent-20</div>
-      <h1 class="hero-title reveal">
-        Passwords can be stolen.<br class="mobile-hide"> Physics can't.
-      </h1>
-      <p class="hero-subtitle reveal">
-        Misuto verifies employee access by generating an environmental signature from their phone's sensors and signals. No codes, no prompts, no friction. If the environment doesn't match, you don't get in.
-      </p>
-      <div class="hero-actions reveal">
-        <a href="#demo" class="btn btn-primary">
-          <span>Request a Demo</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="#solution" class="btn btn-secondary">
-          <span>See How It Works</span>
-        </a>
+  <!-- ===== HERO — Split Layout ===== -->
+  <section class="pt-28 pb-16 lg:pt-36 lg:pb-24 bg-gradient-to-b from-white to-purple-50">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
+      <!-- Left -->
+      <div class="flex-1 text-center lg:text-left">
+        <span class="inline-block px-4 py-1.5 text-xs font-semibold text-purple-600 bg-purple-50 border border-purple-200 rounded-full uppercase tracking-wider mb-6" style="font-family:'SF Mono','Fira Code',monospace;">By Percent-20</span>
+        <h1 class="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight tracking-tight text-gray-900 mb-6">
+          Passwords can be stolen.<br class="hidden lg:block"> <span class="text-purple-600">Physics can't.</span>
+        </h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">
+          Misuto verifies employee access by generating an environmental signature from their phone's sensors and signals. No codes, no prompts, no friction. If the environment doesn't match, you don't get in.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+          <a href="#demo" class="px-7 py-3.5 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition no-underline text-center">Request a Demo &rarr;</a>
+          <a href="#solution" class="px-7 py-3.5 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:border-purple-300 shadow-sm hover:shadow transform hover:-translate-y-0.5 transition no-underline text-center">See How It Works</a>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center lg:justify-start text-xs text-gray-400 font-medium" style="font-family:'SF Mono','Fira Code',monospace;">
+          <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-green-500" fill="none" viewBox="0 0 14 14"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Invisible to employees</span>
+          <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-green-500" fill="none" viewBox="0 0 14 14"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Works with Okta, Entra, Auth0</span>
+          <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-green-500" fill="none" viewBox="0 0 14 14"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>No new hardware</span>
+        </div>
       </div>
-
-      <!-- Hero visual: two scenarios -->
-      <div class="hero-visual reveal">
-        <!-- Scenario 1: Legitimate employee -->
-        <div class="hero-scenario hero-scenario-good">
-          <div class="scenario-label scenario-label-good">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a7 7 0 100 14A7 7 0 008 1z" stroke="currentColor" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <!-- Right — Scenario cards -->
+      <div class="flex-1 w-full max-w-lg flex flex-col gap-4">
+        <!-- Good scenario -->
+        <div class="bg-white rounded-xl border border-gray-200 border-l-4 border-l-green-400 p-5 shadow-sm">
+          <div class="flex items-center gap-2 text-green-600 text-xs font-bold uppercase tracking-wider mb-3" style="font-family:'SF Mono','Fira Code',monospace;">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Legitimate employee
           </div>
-          <div class="scenario-flow">
-            <div class="scenario-step">
-              <div class="scenario-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 15v1a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><rect x="8" y="1" width="9" height="13" rx="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
-              </div>
-              <span>Clicks "Sign In"</span>
+          <div class="flex items-center gap-3 text-sm text-gray-500 flex-wrap">
+            <span>Clicks "Sign In"</span>
+            <span class="text-gray-300">&rarr;</span>
+            <span>Phone checks environment</span>
+            <span class="text-gray-300">&rarr;</span>
+            <div class="flex flex-col gap-1">
+              <span class="text-xs text-green-600 bg-green-50 border border-green-200 rounded px-2 py-0.5" style="font-family:'SF Mono','Fira Code',monospace;">&#10003; Known environment</span>
+              <span class="text-xs text-green-600 bg-green-50 border border-green-200 rounded px-2 py-0.5" style="font-family:'SF Mono','Fira Code',monospace;">&#10003; Trusted signals</span>
             </div>
-            <div class="scenario-arrow">
-              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="scenario-step">
-              <div class="scenario-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="5" y="2" width="10" height="16" rx="2" stroke="currentColor" stroke-width="1.2"/><circle cx="10" cy="15" r="1" fill="currentColor"/></svg>
-              </div>
-              <span>Phone checks environment</span>
-            </div>
-            <div class="scenario-arrow">
-              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="scenario-checks">
-              <div class="scenario-check check-pass">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Known environment
-              </div>
-              <div class="scenario-check check-pass">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Trusted signals
-              </div>
-              <div class="scenario-check check-pass">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Signature valid
-              </div>
-            </div>
-            <div class="scenario-arrow">
-              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="scenario-result result-pass">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9l3.5 3.5L14 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Access granted
-            </div>
+            <span class="text-gray-300">&rarr;</span>
+            <span class="text-green-700 font-bold bg-green-50 border border-green-200 rounded-lg px-3 py-1.5 text-xs" style="font-family:'SF Mono','Fira Code',monospace;">&#10003; Access granted</span>
           </div>
         </div>
-
-        <!-- Scenario 2: Attacker -->
-        <div class="hero-scenario hero-scenario-bad">
-          <div class="scenario-label scenario-label-bad">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a7 7 0 100 14A7 7 0 008 1z" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <!-- Bad scenario -->
+        <div class="bg-white rounded-xl border border-gray-200 border-l-4 border-l-red-400 p-5 shadow-sm">
+          <div class="flex items-center gap-2 text-red-500 text-xs font-bold uppercase tracking-wider mb-3" style="font-family:'SF Mono','Fira Code',monospace;">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
             Attacker with stolen password
           </div>
-          <div class="scenario-flow">
-            <div class="scenario-step">
-              <div class="scenario-icon scenario-icon-bad">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 15v1a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><rect x="8" y="1" width="9" height="13" rx="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
-              </div>
-              <span>Uses stolen credentials</span>
+          <div class="flex items-center gap-3 text-sm text-gray-500 flex-wrap">
+            <span>Uses stolen credentials</span>
+            <span class="text-red-300">&rarr;</span>
+            <span>Wrong phone / no phone</span>
+            <span class="text-red-300">&rarr;</span>
+            <div class="flex flex-col gap-1">
+              <span class="text-xs text-red-500 bg-red-50 border border-red-200 rounded px-2 py-0.5" style="font-family:'SF Mono','Fira Code',monospace;">&#10007; Unknown environment</span>
+              <span class="text-xs text-red-500 bg-red-50 border border-red-200 rounded px-2 py-0.5" style="font-family:'SF Mono','Fira Code',monospace;">&#10007; Untrusted signals</span>
             </div>
-            <div class="scenario-arrow scenario-arrow-bad">
-              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="scenario-step">
-              <div class="scenario-icon scenario-icon-bad">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="5" y="2" width="10" height="16" rx="2" stroke="currentColor" stroke-width="1.2"/><circle cx="10" cy="15" r="1" fill="currentColor"/></svg>
-              </div>
-              <span>Wrong phone / no phone</span>
-            </div>
-            <div class="scenario-arrow scenario-arrow-bad">
-              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="scenario-checks">
-              <div class="scenario-check check-fail">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                Unknown environment
-              </div>
-              <div class="scenario-check check-fail">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                Untrusted signals
-              </div>
-              <div class="scenario-check check-fail">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                Signature mismatch
-              </div>
-            </div>
-            <div class="scenario-arrow scenario-arrow-bad">
-              <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M0 6h16m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="scenario-result result-fail">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 5l8 8M13 5l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              Blocked
-            </div>
+            <span class="text-red-300">&rarr;</span>
+            <span class="text-red-600 font-bold bg-red-50 border border-red-200 rounded-lg px-3 py-1.5 text-xs" style="font-family:'SF Mono','Fira Code',monospace;">&#10007; Blocked</span>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="hero-proof reveal">
-        <span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Invisible to employees
-        </span>
-        <span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Works with Okta, Entra, Auth0
-        </span>
-        <span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          No new hardware for users
-        </span>
+  <!-- Trust Bar -->
+  <section class="py-10 border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-6">Trusted by security-conscious teams</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <span class="px-5 py-2.5 border border-gray-100 rounded-lg text-sm font-semibold text-gray-400" style="font-family:'SF Mono','Fira Code',monospace;">Enterprise</span>
+        <span class="px-5 py-2.5 border border-gray-100 rounded-lg text-sm font-semibold text-gray-400" style="font-family:'SF Mono','Fira Code',monospace;">Financial Services</span>
+        <span class="px-5 py-2.5 border border-gray-100 rounded-lg text-sm font-semibold text-gray-400" style="font-family:'SF Mono','Fira Code',monospace;">Healthcare</span>
+        <span class="px-5 py-2.5 border border-gray-100 rounded-lg text-sm font-semibold text-gray-400" style="font-family:'SF Mono','Fira Code',monospace;">Technology</span>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       2. TRUST BAR
-       ============================================================ -->
-  <section class="trust-bar">
-    <div class="container">
-      <p class="trust-label">Trusted by security-conscious teams</p>
-      <div class="trust-logos">
-        <span class="trust-logo">Enterprise</span>
-        <span class="trust-logo">Financial Services</span>
-        <span class="trust-logo">Healthcare</span>
-        <span class="trust-logo">Technology</span>
-      </div>
-    </div>
-  </section>
+  <!-- ===== THE PROBLEM ===== -->
+  <section class="py-20 bg-gray-50" id="problem">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-3 text-center" style="font-family:'SF Mono','Fira Code',monospace;">The Problem</p>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-center mb-4 tracking-tight">More security means more friction.<br class="hidden sm:block"> Less friction means more breaches.</h2>
+      <p class="text-gray-500 text-center max-w-2xl mx-auto mb-14 text-lg leading-relaxed">Every enterprise is trapped in the same cycle. You can't harden authentication without making employees miserable, and you can't ease up without opening the door to attackers.</p>
 
-  <!-- ============================================================
-       3. THE PROBLEM — Security Fatigue Cycle
-       ============================================================ -->
-  <section class="section section-alt" id="problem">
-    <div class="container">
-      <p class="section-eyebrow reveal">The Problem</p>
-      <h2 class="section-title reveal">More security means more friction. Less friction means more breaches.</h2>
-      <p class="section-subtitle reveal">Every enterprise is trapped in the same cycle. You can't harden authentication without making employees miserable, and you can't ease up without opening the door to attackers.</p>
-
-      <!-- Cycle visualization -->
-      <div class="cycle-visual reveal">
-        <div class="cycle-ring">
-          <div class="cycle-step"><span class="cycle-num">1</span>Harden security policies</div>
-          <div class="cycle-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="cycle-step"><span class="cycle-num">2</span>Friction increases</div>
-          <div class="cycle-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="cycle-step"><span class="cycle-num">3</span>Employee complaints</div>
-          <div class="cycle-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="cycle-step"><span class="cycle-num">4</span>SOC fatigue &amp; CISO pressure</div>
-          <div class="cycle-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="cycle-step"><span class="cycle-num">5</span>Relax policies</div>
-          <div class="cycle-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="cycle-step"><span class="cycle-num">6</span>Resilience drops. Repeat.</div>
-        </div>
+      <!-- Cycle -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-500 shadow-sm"><span class="text-purple-600 font-bold mr-1" style="font-family:'SF Mono','Fira Code',monospace;">1</span>Harden policies</span>
+        <span class="text-gray-300 flex items-center">&rarr;</span>
+        <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-500 shadow-sm"><span class="text-purple-600 font-bold mr-1" style="font-family:'SF Mono','Fira Code',monospace;">2</span>Friction increases</span>
+        <span class="text-gray-300 flex items-center">&rarr;</span>
+        <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-500 shadow-sm"><span class="text-purple-600 font-bold mr-1" style="font-family:'SF Mono','Fira Code',monospace;">3</span>Complaints</span>
+        <span class="text-gray-300 flex items-center">&rarr;</span>
+        <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-500 shadow-sm"><span class="text-purple-600 font-bold mr-1" style="font-family:'SF Mono','Fira Code',monospace;">4</span>CISO pressure</span>
+        <span class="text-gray-300 flex items-center">&rarr;</span>
+        <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-500 shadow-sm"><span class="text-purple-600 font-bold mr-1" style="font-family:'SF Mono','Fira Code',monospace;">5</span>Relax policies</span>
+        <span class="text-gray-300 flex items-center">&rarr;</span>
+        <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm text-gray-500 shadow-sm"><span class="text-purple-600 font-bold mr-1" style="font-family:'SF Mono','Fira Code',monospace;">6</span>Repeat.</span>
       </div>
 
       <!-- Pain cards -->
-      <div class="pain-cards">
-        <div class="pain-card reveal">
-          <div class="pain-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 7v5c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center mb-5 text-purple-600">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24"><path d="M12 2L4 7v5c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
           </div>
-          <h3>Security Leaders</h3>
-          <p>Forced to choose between locking things down (and getting buried in complaints) or easing up (and praying nothing gets breached). There's no winning move.</p>
+          <h3 class="text-base font-bold mb-2">Security Leaders</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Forced to choose between locking things down (and getting buried in complaints) or easing up (and praying nothing gets breached). There's no winning move.</p>
         </div>
-        <div class="pain-card reveal">
-          <div class="pain-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0H5a2 2 0 01-2-2v-4m6 6h10a2 2 0 002-2v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center mb-5 text-purple-600">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0H5a2 2 0 01-2-2v-4m6 6h10a2 2 0 002-2v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
-          <h3>IT &amp; Operations</h3>
-          <p>"I forgot my password." "My MFA token expired." "I lost my hardware key." Helpdesk tickets pile up. Every security layer you add creates another thing that breaks.</p>
+          <h3 class="text-base font-bold mb-2">IT &amp; Operations</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">"I forgot my password." "My MFA token expired." "I lost my hardware key." Helpdesk tickets pile up. Every security layer you add creates another thing that breaks.</p>
         </div>
-        <div class="pain-card reveal">
-          <div class="pain-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center mb-5 text-purple-600">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <h3>Employees</h3>
-          <p>Open laptop. Type password. Wait for push notification. Approve on phone. Get timed out. Do it again. Security has become the biggest obstacle to getting actual work done.</p>
+          <h3 class="text-base font-bold mb-2">Employees</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Open laptop. Type password. Wait for push notification. Approve on phone. Get timed out. Do it again. Security has become the biggest obstacle to getting actual work done.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       4. THE SOLUTION — Meet Misuto
-       ============================================================ -->
-  <section class="section" id="solution">
-    <div class="container">
-      <p class="section-eyebrow reveal">The Solution</p>
-      <h2 class="section-title reveal">What if login security didn't require the user to do anything?</h2>
-      <p class="section-subtitle reveal">Misuto uses the employee's phone to read their physical surroundings and generate an environmental signature. That signature becomes the proof of identity. No codes. No prompts. The employee just logs in normally.</p>
+  <!-- ===== THE SOLUTION — Zigzag left text / right image ===== -->
+  <section class="py-20" id="solution">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-3 text-center" style="font-family:'SF Mono','Fira Code',monospace;">The Solution</p>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-center mb-4 tracking-tight">What if login security didn't require<br class="hidden sm:block"> the user to do anything?</h2>
+      <p class="text-gray-500 text-center max-w-2xl mx-auto mb-16 text-lg leading-relaxed">Misuto uses the employee's phone to read their physical surroundings and generate an environmental signature. That signature becomes the proof of identity.</p>
 
-      <div class="solution-visual reveal">
-        <div class="solution-steps">
-          <div class="solution-step">
-            <div class="solution-step-num">1</div>
-            <div class="solution-step-text">
-              <h4>The employee's phone reads their surroundings</h4>
-              <p>The phone uses its built-in sensors to capture multiple signals and events from the employee's physical environment. This happens silently, with no user interaction.</p>
-            </div>
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <!-- Left: Steps -->
+        <div class="flex-1 space-y-7">
+          <div class="flex gap-4">
+            <div class="w-9 h-9 rounded-full bg-purple-50 border border-purple-200 text-purple-600 text-sm font-bold flex items-center justify-center flex-shrink-0" style="font-family:'SF Mono','Fira Code',monospace;">1</div>
+            <div><h4 class="font-bold text-base mb-1">The phone reads their surroundings</h4><p class="text-gray-500 text-sm leading-relaxed">Built-in sensors capture multiple signals from the employee's physical environment. Silently, with no user interaction.</p></div>
           </div>
-          <div class="solution-step">
-            <div class="solution-step-num">2</div>
-            <div class="solution-step-text">
-              <h4>That context becomes an encrypted, one-time environmental signature</h4>
-              <p>The phone encrypts those signals into a short-lived environmental signature that proves "I'm in a trusted place right now." Raw sensor data never leaves the device.</p>
-            </div>
+          <div class="flex gap-4">
+            <div class="w-9 h-9 rounded-full bg-purple-50 border border-purple-200 text-purple-600 text-sm font-bold flex items-center justify-center flex-shrink-0" style="font-family:'SF Mono','Fira Code',monospace;">2</div>
+            <div><h4 class="font-bold text-base mb-1">Context becomes an encrypted signature</h4><p class="text-gray-500 text-sm leading-relaxed">The phone encrypts signals into a short-lived environmental signature. Raw sensor data never leaves the device.</p></div>
           </div>
-          <div class="solution-step">
-            <div class="solution-step-num">3</div>
-            <div class="solution-step-text">
-              <h4>Misuto checks it against what it expects</h4>
-              <p>Does this environmental signature match the employee's known profile? If yes, the login proceeds instantly. If something doesn't match, access is blocked.</p>
-            </div>
+          <div class="flex gap-4">
+            <div class="w-9 h-9 rounded-full bg-purple-50 border border-purple-200 text-purple-600 text-sm font-bold flex items-center justify-center flex-shrink-0" style="font-family:'SF Mono','Fira Code',monospace;">3</div>
+            <div><h4 class="font-bold text-base mb-1">Misuto checks it against what it expects</h4><p class="text-gray-500 text-sm leading-relaxed">Signature matches the profile? Login proceeds. Something off? Access is blocked instantly.</p></div>
           </div>
-          <div class="solution-step">
-            <div class="solution-step-num">4</div>
-            <div class="solution-step-text">
-              <h4>All of this happens before your identity provider is involved</h4>
-              <p>Misuto sits in front of Okta, Entra, or Auth0. An attacker with a stolen password is stopped before the login page even loads. Your employees never notice it's there.</p>
-            </div>
+          <div class="flex gap-4">
+            <div class="w-9 h-9 rounded-full bg-purple-50 border border-purple-200 text-purple-600 text-sm font-bold flex items-center justify-center flex-shrink-0" style="font-family:'SF Mono','Fira Code',monospace;">4</div>
+            <div><h4 class="font-bold text-base mb-1">All before your IdP is even involved</h4><p class="text-gray-500 text-sm leading-relaxed">Misuto sits in front of Okta, Entra, or Auth0. Attackers are stopped before the login page loads.</p></div>
           </div>
         </div>
-        <div class="solution-phone">
-          <div class="phone-frame">
-            <img src="assets/saferoom-authenticated.png" alt="Misuto verification - Authenticated" width="240" height="auto" loading="lazy">
+        <!-- Right: Phone -->
+        <div class="flex-shrink-0">
+          <div class="bg-white border border-gray-200 rounded-2xl p-2 shadow-lg w-56">
+            <img src="assets/saferoom-authenticated.png" alt="Misuto verification" class="rounded-xl w-full" loading="lazy">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       5. HOW IT WORKS — 3-Step Flow
-       ============================================================ -->
-  <section class="section section-alt" id="how-it-works">
-    <div class="container">
-      <p class="section-eyebrow reveal">The Employee Experience</p>
-      <h2 class="section-title reveal">From the employee's perspective, nothing changes.</h2>
-      <p class="section-subtitle reveal">No new app to open. No codes to type. No notifications to approve. They just log in the way they always have.</p>
-      <div class="flow">
-        <div class="flow-step reveal">
-          <div class="flow-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M10 14h8M14 10v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="py-20 bg-gray-50" id="how-it-works">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-3 text-center" style="font-family:'SF Mono','Fira Code',monospace;">The Employee Experience</p>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-center mb-4 tracking-tight">From the employee's perspective,<br class="hidden sm:block"> nothing changes.</h2>
+      <p class="text-gray-500 text-center max-w-2xl mx-auto mb-14 text-lg leading-relaxed">No new app to open. No codes to type. No notifications to approve. They just log in the way they always have.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm">
+          <div class="w-14 h-14 rounded-2xl bg-purple-50 border border-purple-100 flex items-center justify-center mb-4 text-purple-600">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 28 28"><rect x="4" y="4" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M10 14h8M14 10v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
-          <div class="flow-num">01</div>
-          <h3>Employee clicks "Sign In" as usual</h3>
-          <p>They open Okta, Entra, Salesforce, or any internal tool. The login flow looks exactly the same as it does today. Nothing new to learn or install.</p>
+          <div class="text-xs text-gray-400 font-bold mb-2" style="font-family:'SF Mono','Fira Code',monospace;">01</div>
+          <h3 class="font-bold text-base mb-2">Employee clicks "Sign In" as usual</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">They open Okta, Entra, Salesforce, or any internal tool. The login flow looks exactly the same. Nothing new to learn.</p>
         </div>
-        <div class="flow-connector reveal"><div class="flow-line"></div></div>
-        <div class="flow-step reveal">
-          <div class="flow-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="7" y="3" width="14" height="22" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="20" r="1.5" fill="currentColor"/></svg>
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm">
+          <div class="w-14 h-14 rounded-2xl bg-purple-50 border border-purple-100 flex items-center justify-center mb-4 text-purple-600">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 28 28"><rect x="7" y="3" width="14" height="22" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="20" r="1.5" fill="currentColor"/></svg>
           </div>
-          <div class="flow-num">02</div>
-          <h3>Their phone quietly confirms their environment</h3>
-          <p>With no visible prompt, the employee's phone generates an environmental signature from multiple sensor signals. This takes milliseconds.</p>
+          <div class="text-xs text-gray-400 font-bold mb-2" style="font-family:'SF Mono','Fira Code',monospace;">02</div>
+          <h3 class="font-bold text-base mb-2">Phone quietly confirms environment</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">With no visible prompt, the employee's phone generates an environmental signature from multiple sensor signals. Milliseconds.</p>
         </div>
-        <div class="flow-connector reveal"><div class="flow-line"></div></div>
-        <div class="flow-step reveal">
-          <div class="flow-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M7 14l5 5L21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm">
+          <div class="w-14 h-14 rounded-2xl bg-purple-50 border border-purple-100 flex items-center justify-center mb-4 text-purple-600">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 28 28"><path d="M7 14l5 5L21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="flow-num">03</div>
-          <h3>Right environment = access. Wrong environment = blocked.</h3>
-          <p>If everything matches, the employee is logged in seamlessly. If someone in another country tries the same credentials, they're stopped cold. Before authentication even begins.</p>
+          <div class="text-xs text-gray-400 font-bold mb-2" style="font-family:'SF Mono','Fira Code',monospace;">03</div>
+          <h3 class="font-bold text-base mb-2">Right environment = access. Wrong = blocked.</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">If everything matches, logged in seamlessly. Wrong country with the same credentials? Stopped cold before authentication begins.</p>
         </div>
       </div>
-      <div class="flow-emphasis reveal">
-        Your employees get faster logins with zero effort. Attackers with stolen passwords and phished MFA codes hit a wall they can't get past.
+      <div class="mt-10 max-w-xl mx-auto text-center bg-purple-50 border border-purple-100 rounded-xl px-6 py-5 text-gray-700 font-semibold text-sm">
+        Your employees get faster logins with zero effort. Attackers with stolen passwords hit a wall they can't get past.
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       6. KEY METRICS
-       ============================================================ -->
-  <section class="section metrics-section" id="metrics">
-    <div class="container">
-      <div class="metrics-grid">
-        <div class="metric reveal">
-          <div class="metric-value">0</div>
-          <div class="metric-label">Codes to type. Ever.</div>
+  <!-- ===== METRICS ===== -->
+  <section class="py-16 bg-purple-50 border-y border-purple-100">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white rounded-xl border border-gray-200 p-6 text-center shadow-sm">
+          <div class="text-3xl font-extrabold text-purple-600 mb-1" style="font-family:'SF Mono','Fira Code',monospace;">0</div>
+          <div class="text-sm text-gray-500 font-semibold">Codes to type. Ever.</div>
         </div>
-        <div class="metric reveal">
-          <div class="metric-value">&lt;200ms</div>
-          <div class="metric-label">Verification time</div>
+        <div class="bg-white rounded-xl border border-gray-200 p-6 text-center shadow-sm">
+          <div class="text-3xl font-extrabold text-purple-600 mb-1" style="font-family:'SF Mono','Fira Code',monospace;">&lt;200ms</div>
+          <div class="text-sm text-gray-500 font-semibold">Verification time</div>
         </div>
-        <div class="metric reveal">
-          <div class="metric-value">100%</div>
-          <div class="metric-label">MFA replacement</div>
+        <div class="bg-white rounded-xl border border-gray-200 p-6 text-center shadow-sm">
+          <div class="text-3xl font-extrabold text-purple-600 mb-1" style="font-family:'SF Mono','Fira Code',monospace;">100%</div>
+          <div class="text-sm text-gray-500 font-semibold">MFA replacement</div>
         </div>
-        <div class="metric reveal">
-          <div class="metric-value">Any</div>
-          <div class="metric-label">SAML/OIDC provider</div>
+        <div class="bg-white rounded-xl border border-gray-200 p-6 text-center shadow-sm">
+          <div class="text-3xl font-extrabold text-purple-600 mb-1" style="font-family:'SF Mono','Fira Code',monospace;">Any</div>
+          <div class="text-sm text-gray-500 font-semibold">SAML/OIDC provider</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       7. WHO IT SERVES
-       ============================================================ -->
-  <section class="section" id="who-it-serves">
-    <div class="container">
-      <p class="section-eyebrow reveal">Who Benefits</p>
-      <h2 class="section-title reveal">Stronger security that every team actually wants</h2>
-      <p class="section-subtitle reveal">For the first time, hardening authentication doesn't mean making everyone's life harder.</p>
-      <div class="serves-grid">
-        <div class="serves-card reveal">
-          <div class="serves-card-inner">
-            <div class="serves-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 7v5c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="serves-label">Security / CISO</div>
-            <h3>Stolen credentials become useless</h3>
-            <p>An attacker can have the right password and even a phished MFA code. It doesn't matter. Without being in the employee's physical environment, access is denied. You get stronger security without the employee pushback.</p>
+  <!-- ===== WHO BENEFITS — Zigzag reversed ===== -->
+  <section class="py-20" id="who-it-serves">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-3 text-center" style="font-family:'SF Mono','Fira Code',monospace;">Who Benefits</p>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-center mb-4 tracking-tight">Stronger security that every team<br class="hidden sm:block"> actually wants</h2>
+      <p class="text-gray-500 text-center max-w-2xl mx-auto mb-14 text-lg leading-relaxed">For the first time, hardening authentication doesn't mean making everyone's life harder.</p>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center mb-5 text-purple-600">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24"><path d="M12 2L4 7v5c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
+          <div class="text-xs text-purple-600 font-bold uppercase tracking-wider mb-2" style="font-family:'SF Mono','Fira Code',monospace;">Security / CISO</div>
+          <h3 class="font-bold text-base mb-2">Stolen credentials become useless</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Without being in the employee's physical environment, access is denied. Stronger security without the pushback.</p>
         </div>
-        <div class="serves-card reveal">
-          <div class="serves-card-inner">
-            <div class="serves-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0H5a2 2 0 01-2-2v-4m6 6h10a2 2 0 002-2v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </div>
-            <div class="serves-label">IT / Operations</div>
-            <h3>Fewer tickets, simpler rollout</h3>
-            <p>No MFA tokens to ship and replace. No hardware keys to manage. No "I can't log in" calls. Misuto plugs into your existing Okta, Entra, or Auth0 setup. Nothing to rip out, nothing to migrate.</p>
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center mb-5 text-purple-600">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0H5a2 2 0 01-2-2v-4m6 6h10a2 2 0 002-2v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
+          <div class="text-xs text-purple-600 font-bold uppercase tracking-wider mb-2" style="font-family:'SF Mono','Fira Code',monospace;">IT / Operations</div>
+          <h3 class="font-bold text-base mb-2">Fewer tickets, simpler rollout</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">No MFA tokens to ship. No hardware keys to manage. Plugs into your existing Okta, Entra, or Auth0 setup.</p>
         </div>
-        <div class="serves-card reveal">
-          <div class="serves-card-inner">
-            <div class="serves-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="serves-label">Employees</div>
-            <h3>They don't even know it's there</h3>
-            <p>No push notifications. No six-digit codes. No fumbling for a hardware key. Employees log in the way they always have. Misuto just makes sure it's actually them, silently.</p>
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center mb-5 text-purple-600">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
+          <div class="text-xs text-purple-600 font-bold uppercase tracking-wider mb-2" style="font-family:'SF Mono','Fira Code',monospace;">Employees</div>
+          <h3 class="font-bold text-base mb-2">They don't even know it's there</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">No push notifications. No six-digit codes. Employees log in the way they always have. Misuto works silently.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       8. ZERO-KNOWLEDGE PRIVACY
-       ============================================================ -->
-  <section class="section privacy-section" id="privacy">
-    <div class="container">
-      <p class="section-eyebrow reveal">Privacy by Design</p>
-      <h2 class="section-title reveal">We verify where you are without knowing where you are</h2>
-      <p class="section-subtitle reveal">Misuto never sees your employees' raw sensor data. The phone encrypts everything locally and sends only a mathematical proof that can't be reversed.</p>
+  <!-- ===== PRIVACY ===== -->
+  <section class="py-20 bg-purple-50" id="privacy">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-3 text-center" style="font-family:'SF Mono','Fira Code',monospace;">Privacy by Design</p>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-center mb-4 tracking-tight">We verify where you are without<br class="hidden sm:block"> knowing where you are</h2>
+      <p class="text-gray-500 text-center max-w-2xl mx-auto mb-14 text-lg leading-relaxed">Misuto never sees raw sensor data. The phone encrypts everything locally and sends only a mathematical proof that can't be reversed.</p>
 
-      <div class="privacy-flow reveal">
-        <div class="privacy-flow-side">
-          <div class="privacy-flow-header">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="4" y="2" width="12" height="16" rx="2.5" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="14.5" r="1" fill="currentColor"/></svg>
-            Employee's phone (stays private)
+      <!-- Privacy flow -->
+      <div class="flex flex-col lg:flex-row bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm mb-10 max-w-3xl mx-auto">
+        <div class="flex-1 p-6">
+          <div class="flex items-center gap-2 font-bold text-sm mb-4 text-gray-800">
+            <svg class="w-5 h-5 text-purple-600" fill="none" viewBox="0 0 20 20"><rect x="4" y="2" width="12" height="16" rx="2.5" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="14.5" r="1" fill="currentColor"/></svg>
+            Employee's phone
           </div>
-          <div class="privacy-flow-items">
-            <div class="privacy-flow-item pf-raw">Signal A: raw data</div>
-            <div class="privacy-flow-item pf-raw">Signal B: raw data</div>
-            <div class="privacy-flow-item pf-raw">Signal C: raw data</div>
-            <div class="privacy-flow-item pf-raw">Signal D: raw data</div>
+          <div class="space-y-1.5 mb-3" style="font-family:'SF Mono','Fira Code',monospace;">
+            <div class="text-xs px-3 py-1.5 rounded bg-green-50 border border-green-200 text-green-700">Signal A: raw data</div>
+            <div class="text-xs px-3 py-1.5 rounded bg-green-50 border border-green-200 text-green-700">Signal B: raw data</div>
+            <div class="text-xs px-3 py-1.5 rounded bg-green-50 border border-green-200 text-green-700">Signal C: raw data</div>
           </div>
-          <div class="privacy-flow-process">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Encrypted on the phone
+          <div class="text-xs text-gray-400 font-semibold uppercase border-t border-gray-100 pt-3" style="font-family:'SF Mono','Fira Code',monospace;">&#8595; Encrypted on device</div>
+        </div>
+        <div class="flex items-center justify-center px-5 py-4 bg-purple-50 border-l border-r border-gray-200 text-purple-600">
+          <div class="text-center">
+            <svg class="w-8 h-5 mx-auto mb-1" fill="none" viewBox="0 0 40 20"><path d="M0 10h36m0 0l-6-5m6 5l-6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="text-xs font-semibold text-gray-400 uppercase" style="font-family:'SF Mono','Fira Code',monospace;">Encrypted<br>proof only</span>
           </div>
         </div>
-        <div class="privacy-flow-arrow">
-          <svg width="40" height="20" viewBox="0 0 40 20" fill="none"><path d="M0 10h36m0 0l-6-5m6 5l-6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Only encrypted<br>proof is sent</span>
-        </div>
-        <div class="privacy-flow-side">
-          <div class="privacy-flow-header">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M6 6V5a4 4 0 018 0v1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-            Misuto server (sees only this)
+        <div class="flex-1 p-6">
+          <div class="flex items-center gap-2 font-bold text-sm mb-4 text-gray-800">
+            <svg class="w-5 h-5 text-purple-600" fill="none" viewBox="0 0 20 20"><rect x="2" y="6" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M6 6V5a4 4 0 018 0v1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Misuto server
           </div>
-          <div class="privacy-flow-items">
-            <div class="privacy-flow-item pf-hash">a7f3...c821</div>
-            <div class="privacy-flow-item pf-hash">9e2b...4f17</div>
-            <div class="privacy-flow-item pf-hash">d41c...8a03</div>
-            <div class="privacy-flow-item pf-hash">b6e9...2d55</div>
+          <div class="space-y-1.5 mb-3" style="font-family:'SF Mono','Fira Code',monospace;">
+            <div class="text-xs px-3 py-1.5 rounded bg-purple-50 border border-purple-200 text-purple-600">a7f3...c821</div>
+            <div class="text-xs px-3 py-1.5 rounded bg-purple-50 border border-purple-200 text-purple-600">9e2b...4f17</div>
+            <div class="text-xs px-3 py-1.5 rounded bg-purple-50 border border-purple-200 text-purple-600">d41c...8a03</div>
           </div>
-          <div class="privacy-flow-verdict">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Environment matches. Access granted.
-          </div>
+          <div class="text-xs text-green-600 font-semibold border-t border-gray-100 pt-3" style="font-family:'SF Mono','Fira Code',monospace;">&#10003; Match. Access granted.</div>
         </div>
       </div>
 
-      <div class="privacy-grid">
-        <div class="privacy-card reveal">
-          <div class="privacy-num">01</div>
-          <h3>Encrypted on the device</h3>
-          <p>Your employees' raw sensor data never leaves their phone. Everything is encrypted locally into a one-way proof before anything is transmitted.</p>
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm">
+          <div class="text-xs text-gray-400 font-bold mb-3" style="font-family:'SF Mono','Fira Code',monospace;">01</div>
+          <h3 class="font-bold text-base mb-2">Encrypted on the device</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Raw sensor data never leaves the phone. Everything is encrypted locally into a one-way proof before transmission.</p>
         </div>
-        <div class="privacy-card reveal">
-          <div class="privacy-num">02</div>
-          <h3>Expires in seconds</h3>
-          <p>Each proof is single-use and time-stamped. Even if someone intercepted it, they couldn't use it. It's already expired. Every login generates a completely new one.</p>
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm">
+          <div class="text-xs text-gray-400 font-bold mb-3" style="font-family:'SF Mono','Fira Code',monospace;">02</div>
+          <h3 class="font-bold text-base mb-2">Expires in seconds</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Each proof is single-use and time-stamped. Even if intercepted, it's already expired. Every login generates a new one.</p>
         </div>
-        <div class="privacy-card reveal">
-          <div class="privacy-num">03</div>
-          <h3>No tracking, no profiling</h3>
-          <p>Misuto doesn't store your employees' sensor data or build behavioral profiles. We verify the environment, confirm the match, and discard. No surveillance. No tracking.</p>
+        <div class="bg-white rounded-xl border border-gray-200 p-7 shadow-sm">
+          <div class="text-xs text-gray-400 font-bold mb-3" style="font-family:'SF Mono','Fira Code',monospace;">03</div>
+          <h3 class="font-bold text-base mb-2">No tracking, no profiling</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">We verify the environment, confirm the match, and discard. No surveillance. No behavioral profiles. No stored sensor data.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       9. THE CREDENTIAL LIFECYCLE — Before / After
-       ============================================================ -->
-  <section class="section section-alt" id="lifecycle">
-    <div class="container">
-      <p class="section-eyebrow reveal">Before &amp; After</p>
-      <h2 class="section-title reveal">How Misuto changes every phase of credential management</h2>
-      <p class="section-subtitle reveal">Passwords, MFA tokens, and hardware keys create friction at every stage. Here's what each phase looks like with environment-based verification instead.</p>
+  <!-- ===== INTEGRATION ===== -->
+  <section class="py-20" id="integration">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-3 text-center" style="font-family:'SF Mono','Fira Code',monospace;">Integration</p>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-center mb-4 tracking-tight">Works with your existing identity provider.</h2>
+      <p class="text-gray-500 text-center max-w-2xl mx-auto mb-14 text-lg leading-relaxed">Misuto adds a verification layer in front of your current login system. Nothing to rip out.</p>
 
-      <div class="lifecycle-grid">
-        <div class="lifecycle-card reveal">
-          <h4>Onboarding</h4>
-          <div class="lifecycle-label lifecycle-label-old">Today</div>
-          <p class="lifecycle-text">Provision passwords, enroll MFA tokens, distribute hardware keys. Days of setup before an employee can work.</p>
-          <div class="lifecycle-label lifecycle-label-new">With Misuto</div>
-          <p class="lifecycle-text">Employee's phone auto-enrolls on first login. Environmental profile builds in minutes. No tokens, no hardware.</p>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-5 mb-10">
+        <div class="bg-white border border-gray-200 rounded-xl px-7 py-5 text-center shadow-sm">
+          <div class="text-xs text-gray-400 font-semibold uppercase mb-1" style="font-family:'SF Mono','Fira Code',monospace;">User</div>
+          <div class="font-bold">Employee</div>
         </div>
-        <div class="lifecycle-card reveal">
-          <h4>Daily Access</h4>
-          <div class="lifecycle-label lifecycle-label-old">Today</div>
-          <p class="lifecycle-text">Constant MFA prompts, push notifications, rotating codes. Users develop fatigue and find workarounds.</p>
-          <div class="lifecycle-label lifecycle-label-new">With Misuto</div>
-          <p class="lifecycle-text">Silent verification. No prompts, no codes, no interruptions. Users don't know it's there.</p>
+        <svg class="w-8 h-5 text-purple-500 flex-shrink-0" fill="none" viewBox="0 0 40 20"><path d="M0 10h36m0 0l-6-5m6 5l-6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="bg-white border border-purple-200 rounded-xl px-7 py-5 text-center shadow-sm">
+          <div class="text-xs text-gray-400 font-semibold uppercase mb-1" style="font-family:'SF Mono','Fira Code',monospace;">Environment Check</div>
+          <div class="font-bold text-purple-600">Misuto</div>
         </div>
-        <div class="lifecycle-card reveal">
-          <h4>Credential Compromise</h4>
-          <div class="lifecycle-label lifecycle-label-old">Today</div>
-          <p class="lifecycle-text">Stolen password + phished MFA = full access. Detection takes 207 days on average. Reset cascade affects everyone.</p>
-          <div class="lifecycle-label lifecycle-label-new">With Misuto</div>
-          <p class="lifecycle-text">Stolen credentials are useless. The attacker isn't in the employee's physical environment. The login attempt is blocked before it ever reaches your identity provider.</p>
-        </div>
-        <div class="lifecycle-card reveal">
-          <h4>Offboarding</h4>
-          <div class="lifecycle-label lifecycle-label-old">Today</div>
-          <p class="lifecycle-text">Revoke credentials, collect hardware tokens, deactivate MFA. Gaps leave zombie accounts active for weeks.</p>
-          <div class="lifecycle-label lifecycle-label-new">With Misuto</div>
-          <p class="lifecycle-text">Disable their environmental profile in one click. Nothing physical to retrieve, no credentials to rotate. Access is cut immediately.</p>
+        <svg class="w-8 h-5 text-purple-500 flex-shrink-0" fill="none" viewBox="0 0 40 20"><path d="M0 10h36m0 0l-6-5m6 5l-6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="bg-white border border-gray-200 rounded-xl px-7 py-5 text-center shadow-sm">
+          <div class="text-xs text-gray-400 font-semibold uppercase mb-1" style="font-family:'SF Mono','Fira Code',monospace;">Identity Provider</div>
+          <div class="font-bold">Okta / Entra / Auth0</div>
         </div>
       </div>
+
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <span class="bg-white border border-gray-200 rounded-lg px-5 py-3 text-sm font-semibold text-gray-500 shadow-sm" style="font-family:'SF Mono','Fira Code',monospace;">Okta</span>
+        <span class="bg-white border border-gray-200 rounded-lg px-5 py-3 text-sm font-semibold text-gray-500 shadow-sm" style="font-family:'SF Mono','Fira Code',monospace;">Microsoft Entra ID</span>
+        <span class="bg-white border border-gray-200 rounded-lg px-5 py-3 text-sm font-semibold text-gray-500 shadow-sm" style="font-family:'SF Mono','Fira Code',monospace;">Auth0</span>
+        <span class="bg-white border border-gray-200 rounded-lg px-5 py-3 text-sm font-semibold text-gray-500 shadow-sm" style="font-family:'SF Mono','Fira Code',monospace;">Custom SAML/OIDC</span>
+      </div>
+
+      <p class="text-gray-500 text-center max-w-2xl mx-auto text-sm leading-relaxed">Misuto checks the employee's physical environment before the login request reaches your identity provider. If the environment doesn't match, the request is blocked. Works with any SAML 2.0 or OIDC-compliant provider.</p>
     </div>
   </section>
 
-  <!-- ============================================================
-       10. INTEGRATION
-       ============================================================ -->
-  <section class="section" id="integration">
-    <div class="container">
-      <p class="section-eyebrow reveal">Integration</p>
-      <h2 class="section-title reveal">Works with your existing identity provider. Nothing to rip out.</h2>
-      <p class="section-subtitle reveal">Misuto adds a verification layer in front of your current login system. Your employees, apps, and identity provider stay exactly as they are.</p>
-
-      <div class="integration-visual reveal">
-        <div class="integration-diagram">
-          <div class="integration-box">
-            <div class="integration-box-label">User</div>
-            <div class="integration-box-name">Employee</div>
-          </div>
-          <div class="integration-arrow">
-            <svg width="40" height="20" viewBox="0 0 40 20" fill="none"><path d="M0 10h36m0 0l-6-5m6 5l-6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="integration-box integration-misuto">
-            <div class="integration-box-label">Environment Check</div>
-            <div class="integration-box-name">Misuto</div>
-          </div>
-          <div class="integration-arrow">
-            <svg width="40" height="20" viewBox="0 0 40 20" fill="none"><path d="M0 10h36m0 0l-6-5m6 5l-6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="integration-box">
-            <div class="integration-box-label">Identity Provider</div>
-            <div class="integration-box-name">Okta / Entra / Auth0</div>
-          </div>
-        </div>
-
-        <div class="idp-logos">
-          <div class="idp-logo">Okta</div>
-          <div class="idp-logo">Microsoft Entra ID</div>
-          <div class="idp-logo">Auth0</div>
-          <div class="idp-logo">Custom SAML/OIDC</div>
-        </div>
-
-        <p class="integration-note reveal">Misuto checks the employee's physical environment before the login request reaches your identity provider. If the environment doesn't match, the request is blocked. Your identity provider never even sees it. Works with any SAML 2.0 or OIDC-compliant provider.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       11. FAQ
-       ============================================================ -->
-  <section class="section section-alt" id="faq">
-    <div class="container">
-      <p class="section-eyebrow reveal">FAQ</p>
-      <h2 class="section-title reveal">Common questions</h2>
-      <div class="faq-list reveal">
-
-        <details class="faq-item">
-          <summary>What exactly does Misuto check on the employee's phone?</summary>
-          <p>Misuto uses multiple sensors and signals built into the employee's phone to read their physical environment. The combination of these signals creates a unique environmental signature that's extremely hard to fake from another location. We don't disclose the specific signals we use for security reasons.</p>
+  <!-- ===== FAQ ===== -->
+  <section class="py-20 bg-gray-50" id="faq">
+    <div class="max-w-2xl mx-auto px-6">
+      <p class="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-3 text-center" style="font-family:'SF Mono','Fira Code',monospace;">FAQ</p>
+      <h2 class="text-3xl font-extrabold text-center mb-10 tracking-tight">Common questions</h2>
+      <div class="space-y-0">
+        <details class="border-b border-gray-200 group">
+          <summary class="py-5 cursor-pointer font-semibold text-sm flex justify-between items-center hover:text-purple-600 transition">What exactly does Misuto check on the employee's phone?<span class="text-gray-400 group-open:text-purple-600 text-lg ml-4 transition">+</span></summary>
+          <p class="text-gray-500 text-sm pb-5 leading-relaxed">Misuto uses multiple sensors and signals built into the employee's phone to read their physical environment. The combination creates a unique environmental signature that's extremely hard to fake. We don't disclose the specific signals for security reasons.</p>
         </details>
-
-        <details class="faq-item">
-          <summary>Does the employee need to install an app or do anything?</summary>
-          <p>Employees install a lightweight companion app once during onboarding. After that, there are no daily interactions. No codes to type, no notifications to approve. Most employees forget it's there.</p>
+        <details class="border-b border-gray-200 group">
+          <summary class="py-5 cursor-pointer font-semibold text-sm flex justify-between items-center hover:text-purple-600 transition">Does the employee need to install an app?<span class="text-gray-400 group-open:text-purple-600 text-lg ml-4 transition">+</span></summary>
+          <p class="text-gray-500 text-sm pb-5 leading-relaxed">Employees install a lightweight companion app once during onboarding. After that, there are no daily interactions. Most employees forget it's there.</p>
         </details>
-
-        <details class="faq-item">
-          <summary>What happens if an employee works from home, a caf&eacute;, or while traveling?</summary>
-          <p>Employees can register multiple trusted environments: home office, headquarters, co-working spaces, even a regular caf&eacute;. Each can have its own schedule (e.g., home office allowed 8am&ndash;6pm). When an employee moves to a new regular location, adding it takes seconds.</p>
+        <details class="border-b border-gray-200 group">
+          <summary class="py-5 cursor-pointer font-semibold text-sm flex justify-between items-center hover:text-purple-600 transition">What about working from home, caf&eacute;s, or while traveling?<span class="text-gray-400 group-open:text-purple-600 text-lg ml-4 transition">+</span></summary>
+          <p class="text-gray-500 text-sm pb-5 leading-relaxed">Employees can register multiple trusted environments with schedules. Adding a new regular location takes seconds.</p>
         </details>
-
-        <details class="faq-item">
-          <summary>What happens if an employee loses their phone?</summary>
-          <p>IT revokes the lost device immediately from the admin console. The employee installs the app on their new phone and re-enrolls. If your organization's policy allows, they can gain limited, high-risk access quickly while the new device builds its full environmental profile. No hardware to ship, no tokens to replace.</p>
+        <details class="border-b border-gray-200 group">
+          <summary class="py-5 cursor-pointer font-semibold text-sm flex justify-between items-center hover:text-purple-600 transition">What if an employee loses their phone?<span class="text-gray-400 group-open:text-purple-600 text-lg ml-4 transition">+</span></summary>
+          <p class="text-gray-500 text-sm pb-5 leading-relaxed">IT revokes the lost device immediately. The employee re-enrolls on their new phone. No hardware to ship, no tokens to replace.</p>
         </details>
-
-        <details class="faq-item">
-          <summary>Does Misuto replace our existing MFA (Okta Verify, Microsoft Authenticator, etc.)?</summary>
-          <p>Yes. Misuto replaces traditional MFA entirely. No more push notifications, OTP codes, or hardware tokens. This eliminates identity tax (the constant friction of proving who you are) and protects against phishing attacks that bypass conventional MFA. Your employees get seamless access, and attackers with stolen credentials or phished codes hit a wall.</p>
+        <details class="border-b border-gray-200 group">
+          <summary class="py-5 cursor-pointer font-semibold text-sm flex justify-between items-center hover:text-purple-600 transition">Does Misuto replace existing MFA?<span class="text-gray-400 group-open:text-purple-600 text-lg ml-4 transition">+</span></summary>
+          <p class="text-gray-500 text-sm pb-5 leading-relaxed">Yes. Misuto replaces traditional MFA entirely. No more push notifications, OTP codes, or hardware tokens. Eliminates identity tax and protects against phishing.</p>
         </details>
-
-        <details class="faq-item">
-          <summary>How long does deployment take?</summary>
-          <p>Typically 2&ndash;4 weeks. You start with a pilot group to validate accuracy and build confidence, then expand to the full organization. Misuto integrates with your existing identity provider, so there's no infrastructure to rebuild.</p>
+        <details class="border-b border-gray-200 group">
+          <summary class="py-5 cursor-pointer font-semibold text-sm flex justify-between items-center hover:text-purple-600 transition">How long does deployment take?<span class="text-gray-400 group-open:text-purple-600 text-lg ml-4 transition">+</span></summary>
+          <p class="text-gray-500 text-sm pb-5 leading-relaxed">Typically 2&ndash;4 weeks. Start with a pilot group, then expand. No infrastructure to rebuild.</p>
         </details>
-
-        <details class="faq-item">
-          <summary>What about compliance (NIST, SOC 2, GDPR)?</summary>
-          <p>Misuto never stores raw sensor data on its servers. Only encrypted, irreversible proofs. This aligns with GDPR data minimization requirements and SOC 2 data handling controls. We provide detailed compliance documentation during the evaluation process.</p>
+        <details class="border-b border-gray-200 group">
+          <summary class="py-5 cursor-pointer font-semibold text-sm flex justify-between items-center hover:text-purple-600 transition">What about compliance (NIST, SOC 2, GDPR)?<span class="text-gray-400 group-open:text-purple-600 text-lg ml-4 transition">+</span></summary>
+          <p class="text-gray-500 text-sm pb-5 leading-relaxed">Misuto never stores raw sensor data. Only encrypted, irreversible proofs. Aligns with GDPR data minimization and SOC 2 controls.</p>
         </details>
-
-        <details class="faq-item">
-          <summary>What happens if Misuto's servers go down?</summary>
-          <p>By default, Misuto fails closed. If it can't verify the environment, access is denied until service is restored. For business-critical apps, you can configure a fallback to your existing MFA so employees aren't locked out during an outage.</p>
+        <details class="border-b border-gray-200 group">
+          <summary class="py-5 cursor-pointer font-semibold text-sm flex justify-between items-center hover:text-purple-600 transition">What if Misuto's servers go down?<span class="text-gray-400 group-open:text-purple-600 text-lg ml-4 transition">+</span></summary>
+          <p class="text-gray-500 text-sm pb-5 leading-relaxed">By default, Misuto fails closed. For business-critical apps, you can configure a fallback to your existing MFA.</p>
         </details>
-
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       12. REQUEST A DEMO
-       ============================================================ -->
-  <section class="section" id="demo">
-    <div class="container">
-      <div class="demo-layout reveal">
-        <div class="demo-box">
-          <p class="section-eyebrow">Get Started</p>
-          <h2>Request a Demo</h2>
-          <p>See Misuto in action with your identity provider. We'll show you how environment-based verification works, walk through a deployment plan, and answer your technical questions.</p>
-          <form class="demo-form" id="demo-form" action="https://formspree.io/f/mnjbolzd" method="POST">
-            <div class="form-row">
-              <input type="text" name="name" placeholder="Full name" required autocomplete="name">
-              <input type="email" name="email" placeholder="Work email" required autocomplete="email">
-            </div>
-            <input type="text" name="company" placeholder="Company" required autocomplete="organization">
-            <textarea name="message" placeholder="Tell us about your environment (optional)" rows="3"></textarea>
-            <button type="submit" class="btn btn-primary">Request a Demo</button>
-          </form>
-          <p class="demo-note" id="demo-note">No commitment. We'll reach out within 24 hours.</p>
-        </div>
+  <!-- ===== DEMO CTA ===== -->
+  <section class="py-20" id="demo">
+    <div class="max-w-lg mx-auto px-6">
+      <div class="bg-white border border-gray-200 rounded-2xl p-10 shadow-lg relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-purple-400"></div>
+        <p class="text-xs font-semibold text-purple-600 uppercase tracking-widest mb-2 text-center" style="font-family:'SF Mono','Fira Code',monospace;">Get Started</p>
+        <h2 class="text-2xl font-extrabold text-center mb-2">Request a Demo</h2>
+        <p class="text-gray-500 text-sm text-center mb-7 leading-relaxed">See Misuto in action with your identity provider. We'll walk through deployment and answer your technical questions.</p>
+        <form id="demo-form" action="https://formspree.io/f/mnjbolzd" method="POST" class="space-y-3">
+          <div class="grid grid-cols-2 gap-3">
+            <input type="text" name="name" placeholder="Full name" required autocomplete="name" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-100">
+            <input type="email" name="email" placeholder="Work email" required autocomplete="email" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-100">
+          </div>
+          <input type="text" name="company" placeholder="Company" required autocomplete="organization" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-100">
+          <textarea name="message" placeholder="Tell us about your environment (optional)" rows="3" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-100 resize-y"></textarea>
+          <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-purple-600 to-purple-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition cursor-pointer text-sm">Request a Demo</button>
+        </form>
+        <p id="demo-note" class="text-xs text-gray-400 text-center mt-4">No commitment. We'll reach out within 24 hours.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       13. FOOTER
-       ============================================================ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-left">
-          <span class="logo-icon">&#9672;</span> <strong>Misuto</strong> <span class="footer-sep">by <a href="https://percent-20.com" target="_blank" rel="noopener">Percent-20</a></span>
-        </div>
-        <div class="footer-links">
-          <a href="https://percent-20.github.io/agentic-mist/" target="_blank" rel="noopener">AgenticMist (Developers)</a>
-          <a href="https://percent-20.com" target="_blank" rel="noopener">Percent-20</a>
-        </div>
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-10 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+      <div>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-purple-400">&#9672;</span>
+        <strong class="text-gray-600">Misuto</strong>
+        <span class="ml-1">by <a href="https://percent-20.com" target="_blank" rel="noopener" class="text-gray-500 hover:text-gray-800 no-underline">Percent-20</a></span>
+      </div>
+      <div class="flex gap-6">
+        <a href="https://percent-20.github.io/agentic-mist/" target="_blank" rel="noopener" class="text-gray-400 hover:text-gray-700 no-underline text-sm">AgenticMist (Developers)</a>
+        <a href="https://percent-20.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-gray-700 no-underline text-sm">Percent-20</a>
       </div>
     </div>
   </footer>

@@ -24,7 +24,7 @@
       var size = Math.random() * 40 + 8;
       var x = Math.random() * 100;
       var duration = Math.random() * 10 + 6;
-      var opacity = Math.random() * 0.08 + 0.03;
+      var opacity = Math.random() * 0.25 + 0.15;
       var color = colors[Math.floor(Math.random() * colors.length)];
 
       bubble.style.width = size + 'px';
