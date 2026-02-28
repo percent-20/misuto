@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Misuto | Passwords Can Be Stolen. Physics Can't.</title>
-  <meta name="description" content="Misuto verifies employees by their physical environment (WiFi, location, time, nearby devices) so stolen passwords and phished MFA codes become useless. Invisible to users. Deploys in front of Okta, Entra, or Auth0.">
+  <meta name="description" content="Misuto verifies employee access by generating environmental signatures from mobile device sensors. Stolen passwords and phished MFA codes become useless. Invisible to users. Deploys in front of Okta, Entra, or Auth0.">
   <meta property="og:title" content="Misuto | Passwords Can Be Stolen. Physics Can't.">
   <meta property="og:description" content="Misuto silently checks that the person logging in is in a trusted physical environment. No codes, no prompts, no friction. Attackers with stolen passwords are blocked before authentication begins.">
   <meta property="og:type" content="website">
@@ -49,7 +49,7 @@
         Passwords can be stolen.<br class="mobile-hide"> Physics can't.
       </h1>
       <p class="hero-subtitle reveal">
-        Misuto verifies employee access by creating an environmental signature from their phone's sensors and signals. WiFi, location, time, nearby devices. No codes, no prompts, no friction. If the environment doesn't match, you don't get in.
+        Misuto verifies employee access by generating an environmental signature from their phone's sensors and signals. No codes, no prompts, no friction. If the environment doesn't match, you don't get in.
       </p>
       <div class="hero-actions reveal">
         <a href="#demo" class="btn btn-primary">
@@ -91,15 +91,15 @@
             <div class="scenario-checks">
               <div class="scenario-check check-pass">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Office WiFi
+                Known environment
               </div>
               <div class="scenario-check check-pass">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Correct location
+                Trusted signals
               </div>
               <div class="scenario-check check-pass">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6l2 2 4-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Work hours
+                Signature valid
               </div>
             </div>
             <div class="scenario-arrow">
@@ -140,15 +140,15 @@
             <div class="scenario-checks">
               <div class="scenario-check check-fail">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                Unknown WiFi
+                Unknown environment
               </div>
               <div class="scenario-check check-fail">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                Wrong country
+                Untrusted signals
               </div>
               <div class="scenario-check check-fail">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3.5 3.5l5 5M8.5 3.5l-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-                3 AM local time
+                Signature mismatch
               </div>
             </div>
             <div class="scenario-arrow scenario-arrow-bad">
@@ -239,7 +239,7 @@
     <div class="container">
       <p class="section-eyebrow reveal">The Solution</p>
       <h2 class="section-title reveal">What if login security didn't require the user to do anything?</h2>
-      <p class="section-subtitle reveal">Misuto checks whether an employee is in a trusted physical environment. The right office, the right WiFi, the right time of day. That becomes the proof of identity. No codes. No prompts. The employee just logs in normally.</p>
+      <p class="section-subtitle reveal">Misuto uses the employee's phone to read their physical surroundings and generate an environmental signature. That signature becomes the proof of identity. No codes. No prompts. The employee just logs in normally.</p>
 
       <div class="solution-visual reveal">
         <div class="solution-steps">
@@ -247,21 +247,21 @@
             <div class="solution-step-num">1</div>
             <div class="solution-step-text">
               <h4>The employee's phone reads their surroundings</h4>
-              <p>Which WiFi networks are nearby? What's the GPS location? What time is it? Are familiar Bluetooth devices in range? The phone collects this silently, in the background, with no user interaction.</p>
+              <p>The phone uses its built-in sensors to capture multiple signals and events from the employee's physical environment. This happens silently, with no user interaction.</p>
             </div>
           </div>
           <div class="solution-step">
             <div class="solution-step-num">2</div>
             <div class="solution-step-text">
               <h4>That context becomes an encrypted, one-time environmental signature</h4>
-              <p>The phone encrypts those signals into a short-lived environmental signature that proves "I'm in a trusted place right now." The raw data (actual WiFi names, exact GPS) never leaves the device.</p>
+              <p>The phone encrypts those signals into a short-lived environmental signature that proves "I'm in a trusted place right now." Raw sensor data never leaves the device.</p>
             </div>
           </div>
           <div class="solution-step">
             <div class="solution-step-num">3</div>
             <div class="solution-step-text">
               <h4>Misuto checks it against what it expects</h4>
-              <p>Does this environmental signature match the employee's known work environment? If yes, the login proceeds instantly. Wrong location, unusual time, or unfamiliar network? Access is blocked.</p>
+              <p>Does this environmental signature match the employee's known profile? If yes, the login proceeds instantly. If something doesn't match, access is blocked.</p>
             </div>
           </div>
           <div class="solution-step">
@@ -305,7 +305,7 @@
           </div>
           <div class="flow-num">02</div>
           <h3>Their phone quietly confirms their environment</h3>
-          <p>With no visible prompt, the employee's phone generates an environmental signature: Am I on the office WiFi? Is it during work hours? Are the usual devices nearby? This takes milliseconds.</p>
+          <p>With no visible prompt, the employee's phone generates an environmental signature from multiple sensor signals. This takes milliseconds.</p>
         </div>
         <div class="flow-connector reveal"><div class="flow-line"></div></div>
         <div class="flow-step reveal">
@@ -359,7 +359,7 @@
             </div>
             <div class="serves-label">Employees</div>
             <h3>They don't even know it's there</h3>
-            <p>No push notifications. No six-digit codes. No fumbling for a hardware key. Employees log in the way they always have. Misuto just makes sure it's actually them, silently, in the background.</p>
+            <p>No push notifications. No six-digit codes. No fumbling for a hardware key. Employees log in the way they always have. Misuto just makes sure it's actually them, silently.</p>
           </div>
         </div>
       </div>
@@ -374,7 +374,7 @@
     <div class="container">
       <p class="section-eyebrow reveal">Privacy by Design</p>
       <h2 class="section-title reveal">We verify where you are without knowing where you are</h2>
-      <p class="section-subtitle reveal">Misuto never sees your employees' actual WiFi names, GPS coordinates, or device details. The phone encrypts everything locally and sends only a mathematical proof that can't be reversed.</p>
+      <p class="section-subtitle reveal">Misuto never sees your employees' raw sensor data. The phone encrypts everything locally and sends only a mathematical proof that can't be reversed.</p>
 
       <div class="privacy-flow reveal">
         <div class="privacy-flow-side">
@@ -383,10 +383,10 @@
             Employee's phone (stays private)
           </div>
           <div class="privacy-flow-items">
-            <div class="privacy-flow-item pf-raw">WiFi: "CorpNet-5G"</div>
-            <div class="privacy-flow-item pf-raw">Location: 40.74, -73.99</div>
-            <div class="privacy-flow-item pf-raw">Time: 09:15 EST</div>
-            <div class="privacy-flow-item pf-raw">Nearby: 3 Bluetooth devices</div>
+            <div class="privacy-flow-item pf-raw">Signal A: raw data</div>
+            <div class="privacy-flow-item pf-raw">Signal B: raw data</div>
+            <div class="privacy-flow-item pf-raw">Signal C: raw data</div>
+            <div class="privacy-flow-item pf-raw">Signal D: raw data</div>
           </div>
           <div class="privacy-flow-process">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -419,7 +419,7 @@
         <div class="privacy-card reveal">
           <div class="privacy-num">01</div>
           <h3>Encrypted on the device</h3>
-          <p>Your employees' raw location, WiFi names, and device details never leave their phone. Everything is encrypted locally into a one-way proof before anything is transmitted.</p>
+          <p>Your employees' raw sensor data never leaves their phone. Everything is encrypted locally into a one-way proof before anything is transmitted.</p>
         </div>
         <div class="privacy-card reveal">
           <div class="privacy-num">02</div>
@@ -428,8 +428,8 @@
         </div>
         <div class="privacy-card reveal">
           <div class="privacy-num">03</div>
-          <h3>No location tracking</h3>
-          <p>Misuto doesn't store where your employees go or build movement profiles. We verify the environment, confirm the match, and discard. No surveillance. No tracking.</p>
+          <h3>No tracking, no profiling</h3>
+          <p>Misuto doesn't store your employees' sensor data or build behavioral profiles. We verify the environment, confirm the match, and discard. No surveillance. No tracking.</p>
         </div>
       </div>
     </div>
@@ -457,7 +457,7 @@
           <div class="lifecycle-label lifecycle-label-old">Today</div>
           <p class="lifecycle-text">Constant MFA prompts, push notifications, rotating codes. Users develop fatigue and find workarounds.</p>
           <div class="lifecycle-label lifecycle-label-new">With Misuto</div>
-          <p class="lifecycle-text">Silent verification in the background. No prompts, no codes, no interruptions. Users don't know it's there.</p>
+          <p class="lifecycle-text">Silent verification. No prompts, no codes, no interruptions. Users don't know it's there.</p>
         </div>
         <div class="lifecycle-card reveal">
           <h4>Credential Compromise</h4>
@@ -531,12 +531,12 @@
 
         <details class="faq-item">
           <summary>What exactly does Misuto check on the employee's phone?</summary>
-          <p>The nearby WiFi networks (not their content, just their names), the phone's GPS location, the current time, and any Bluetooth devices in range. The combination of these signals creates a unique environmental signature that's extremely hard to fake from another location.</p>
+          <p>Misuto uses multiple sensors and signals built into the employee's phone to read their physical environment. The combination of these signals creates a unique environmental signature that's extremely hard to fake from another location. We don't disclose the specific signals we use for security reasons.</p>
         </details>
 
         <details class="faq-item">
           <summary>Does the employee need to install an app or do anything?</summary>
-          <p>Employees install a lightweight companion app once during onboarding. After that, the app runs silently in the background. There are no daily interactions. No codes to type, no notifications to approve. Most employees forget it's there.</p>
+          <p>Employees install a lightweight companion app once during onboarding. After that, there are no daily interactions. No codes to type, no notifications to approve. Most employees forget it's there.</p>
         </details>
 
         <details class="faq-item">
@@ -546,22 +546,22 @@
 
         <details class="faq-item">
           <summary>What happens if an employee loses their phone?</summary>
-          <p>IT revokes the phone's access immediately from the admin console. When the employee gets a new phone, they install the app and re-enroll. Their trusted environments are restored automatically. No hardware to ship, no tokens to replace.</p>
+          <p>IT revokes the lost device immediately from the admin console. The employee installs the app on their new phone and re-enrolls. If your organization's policy allows, they can gain limited, high-risk access quickly while the new device builds its full environmental profile. No hardware to ship, no tokens to replace.</p>
         </details>
 
         <details class="faq-item">
           <summary>Does Misuto replace our existing MFA (Okta Verify, Microsoft Authenticator, etc.)?</summary>
-          <p>It can, but it doesn't have to. Most enterprises start by running Misuto alongside their existing MFA in observation mode. Once confident, they gradually phase out push notifications and OTP codes. Misuto provides stronger verification with less user friction.</p>
+          <p>Yes. Misuto replaces traditional MFA entirely. No more push notifications, OTP codes, or hardware tokens. This eliminates identity tax (the constant friction of proving who you are) and protects against phishing attacks that bypass conventional MFA. Your employees get seamless access, and attackers with stolen credentials or phished codes hit a wall.</p>
         </details>
 
         <details class="faq-item">
           <summary>How long does deployment take?</summary>
-          <p>Typically 2&ndash;4 weeks. The first phase runs Misuto in shadow mode alongside your existing login flow, verifying environments without blocking anyone, so you can validate accuracy. The second phase enables enforcement, starting with a pilot group and expanding from there.</p>
+          <p>Typically 2&ndash;4 weeks. You start with a pilot group to validate accuracy and build confidence, then expand to the full organization. Misuto integrates with your existing identity provider, so there's no infrastructure to rebuild.</p>
         </details>
 
         <details class="faq-item">
           <summary>What about compliance (NIST, SOC 2, GDPR)?</summary>
-          <p>Misuto never stores raw location data or WiFi names on its servers. Only encrypted, irreversible proofs. This aligns with GDPR data minimization requirements and SOC 2 data handling controls. We provide detailed compliance documentation during the evaluation process.</p>
+          <p>Misuto never stores raw sensor data on its servers. Only encrypted, irreversible proofs. This aligns with GDPR data minimization requirements and SOC 2 data handling controls. We provide detailed compliance documentation during the evaluation process.</p>
         </details>
 
         <details class="faq-item">
